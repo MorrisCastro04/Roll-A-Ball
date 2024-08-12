@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -29,5 +30,13 @@ public class PlayerControllers : MonoBehaviour
         Vector2 move = moveValue.Get<Vector2>();
         moveX = move.x;
         moveY = move.y;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("points"))
+        {
+            other.gameObject.SetActive(false);
+        }
     }
 }
