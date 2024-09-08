@@ -80,7 +80,11 @@ public class PlayerControllers : MonoBehaviour
     {
         if (other.gameObject.CompareTag("points"))
         {
-            other.gameObject.SetActive(false);
+            Points point = other.gameObject.GetComponent<Points>();
+            if (point)
+            {
+                point.GetPoints();
+            }
         }
     }
 }
